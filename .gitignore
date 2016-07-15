@@ -1,0 +1,8 @@
+# customer_manager_app
+# .gitignore
+
+# Vendor directory
+vendor
+
+# Dependency directories
+node_modules
