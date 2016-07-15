@@ -1,0 +1,21 @@
+{
+  "name": "customers_app",
+  "version": "1.0.0",
+  "description": "A single-page application built with AngularJS that allows a user to manage a list of customers.",
+  "scripts": {
+    "start": "node server.js",
+    "build": "browserify js/app.js -o dist/bundle.js",
+    "watch": "watchify js/app.js -o dist/bundle.js -d"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "angular": "^1.5.7",
+    "angular-resource": "^1.5.7",
+    "angular-route": "^1.5.7",
+    "express": "^4.14.0"
+  },
+  "devDependencies": {
+    "browserify": "^13.0.1",
+    "watchify": "^3.7.0"
+  }
+}
