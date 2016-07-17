@@ -2,7 +2,7 @@
 # .gitignore
 
 # Vendor directory
-vendor
+lib/
 
 # Dependency directories
-node_modules
+node_modules/

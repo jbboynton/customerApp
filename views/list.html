@@ -15,10 +15,11 @@ HTML template for the customers component.
 
           <div class="row">
             <div class="col-xs-offset-1 col-xs-2">
-              <strong>Add a customer? </strong>
+              <strong>Add a customer?</strong>
             </div>
             <div class="col-xs-3">
-              <a data-ng-click="createNewCustomer()" class="btn btn-sm btn-success" data-toggle="modal" data-target="#addModal">
+              <a data-ng-click="createNewCustomer()" class="btn btn-sm
+                  btn-success" data-toggle="modal" data-target="#addModal">
                 <i class="fa fa-plus"></i>
               </a>
             </div>
@@ -65,8 +66,11 @@ HTML template for the customers component.
               <td>{{ customer.state }}</td>
               <td>{{ customer.zip }}</td>
               <td>
-                <a data-ng-click="editCustomer(customer.id)" data-toggle="modal" data-target="#editModal" class="btn btn-small btn-primary">Edit</a>
-                <a data-ng-click="removeCustomer(customer.id)" class="btn btn-small btn-danger">Remove</a>
+                <a data-ng-click="editCustomer(customer.id)" data-toggle="modal"
+                    data-target="#editModal" class="btn btn-small
+                    btn-primary">Edit</a>
+                <a data-ng-click="removeCustomer(customer.id)" class="btn
+                    btn-small btn-danger">Remove</a>
               </td>
             </tr>
           </tbody>
@@ -77,66 +81,94 @@ HTML template for the customers component.
   </section> <!-- /.listBody -->
 </section> <!-- /.customerList -->
 
-<!-- When an edit button is clicked, a modal dialog prompts the user to make
-  changes to the customer's information. -->
+<!-- The edit customer form -->
 <section class="editCustomerDialog">
   <div class="modal fade" id="editModal" tabindex="-1" role="dialog">
     <div class="modal-dialog">
       <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h3 class="modal-title">Update {{ customerToEdit.fullName | possessive }} Information:</h3>
-        </div>
-        <div class="modal-body">
 
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"
+              aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <h3 class="modal-title">
+              Update {{ customerToEdit.fullName | possessive }} Information:
+          </h3>
+        </div> <!-- /.modal-header -->
+
+        <div class="modal-body">
           <!-- Form for editing the customer's record -->
-          <form class="form-horizontal" name="editForm" action="#">
+          <form class="form-horizontal" name="editForm" novalidate>
 
             <!-- Name -->
             <div class="form-group">
-              <label class="col-sm-2 control-label" for="nameTextInput">Name</label>
+              <label class="col-sm-2 control-label" for="nameTextInput">
+                  Name
+              </label>
               <div class="col-sm-10">
-                <input data-ng-model="editedCustomer.fullName" type="text" class="form-control" id="nameTextInput" placeholder="{{ customerToEdit.fullName }}">
+                <input data-ng-model="editedCustomer.fullName" type="text"
+                    class="form-control" id="nameTextInput"
+                    placeholder="{{ customerToEdit.fullName }}" />
               </div>
             </div>
 
             <!-- Email -->
             <div class="form-group">
-              <label class="col-sm-2 control-label" for="emailTextInput">Email</label>
+              <label class="col-sm-2 control-label" for="emailTextInput">
+                  Email
+              </label>
               <div class="col-sm-10">
-                <input data-ng-model="editedCustomer.email" type="email" class="form-control" id="emailTextInput" placeholder="{{ customerToEdit.email }}">
+                <input data-ng-model="editedCustomer.email" type="email"
+                    class="form-control" id="emailTextInput"
+                    placeholder="{{ customerToEdit.email }}" />
               </div>
             </div>
 
             <!-- Phone number -->
             <div class="form-group">
-              <label class="col-sm-2 control-label" for="telTextInput">Telephone</label>
+              <label class="col-sm-2 control-label" for="telTextInput">
+                  Telephone
+              </label>
               <div class="col-sm-10">
-                <input data-ng-model="editedCustomer.telephone" type="text" class="form-control" id="telTextInput" placeholder="{{ customerToEdit.telephone }}">
+                <input data-ng-model="editedCustomer.telephone" type="text"
+                    class="form-control" id="telTextInput"
+                    placeholder="{{ customerToEdit.telephone }}" />
               </div>
             </div>
 
             <!-- Street -->
             <div class="form-group">
-              <label class="col-sm-2 control-label" for="streetTextInput">Street</label>
+              <label class="col-sm-2 control-label" for="streetTextInput">
+                  Street
+              </label>
               <div class="col-sm-10">
-                <input data-ng-model="editedCustomer.street" type="text" class="form-control" id="streetTextInput" placeholder="{{ customerToEdit.street }}">
+                <input data-ng-model="editedCustomer.street" type="text"
+                    class="form-control" id="streetTextInput"
+                    placeholder="{{ customerToEdit.street }}" />
               </div>
             </div>
 
             <!-- City -->
             <div class="form-group">
-              <label class="col-sm-2 control-label" for="cityTextInput">City</label>
+              <label class="col-sm-2 control-label" for="cityTextInput">
+                  City
+              </label>
               <div class="col-sm-10">
-                <input data-ng-model="editedCustomer.city" type="text" class="form-control" id="cityTextInput" placeholder="{{ customerToEdit.city }}">
+                <input data-ng-model="editedCustomer.city" type="text"
+                    class="form-control" id="cityTextInput"
+                    placeholder="{{ customerToEdit.city }}" />
               </div>
             </div>
 
             <!-- State -->
             <div class="form-group">
-              <label class="col-sm-2 control-label" for="stateTextInput">State</label>
+              <label class="col-sm-2 control-label" for="stateTextInput">
+                  State
+              </label>
               <div class="col-sm-3">
-                <select data-ng-model="editedCustomer.state" class="form-control">
+                <select data-ng-model="editedCustomer.state"
+                    class="form-control">
                   <option label=" "></option>
                   <option value="AL">Alabama</option>
                   <option value="AK">Alaska</option>
@@ -195,9 +227,13 @@ HTML template for the customers component.
 
             <!-- Zip code -->
             <div class="form-group">
-              <label class="col-sm-2 control-label" for="zipTextInput">Zip Code</label>
+              <label class="col-sm-2 control-label" for="zipTextInput">
+                  Zip Code
+              </label>
               <div class="col-sm-3">
-                <input data-ng-model="editedCustomer.zip" type="text" class="form-control" id="zipTextInput" placeholder="{{ customerToEdit.zip }}">
+                <input data-ng-model="editedCustomer.zip" type="text"
+                    class="form-control" id="zipTextInput"
+                    placeholder="{{ customerToEdit.zip }}" />
               </div>
             </div>
 
@@ -208,8 +244,16 @@ HTML template for the customers component.
           <!-- Submit or reset the form. -->
           <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
-              <button data-ng-click="updateCustomer()" type="button" class="btn btn-success modalBtn" data-dismiss="modal"><i class="fa fa-check fa-2x"></i><br />Save</button>
-              <button type="reset" class="btn btn-danger modalBtn" data-dismiss="modal"><i class="fa fa-times fa-2x"></i><br />Cancel</button>
+              <button data-ng-click="updateCustomer()" type="button"
+                  class="btn btn-success modalBtn" data-dismiss="modal">
+                <i class="fa fa-check fa-2x"></i>
+                <br />Save
+              </button>
+              <button type="reset" class="btn btn-danger modalBtn"
+                  data-dismiss="modal">
+                <i class="fa fa-times fa-2x"></i>
+                <br />Cancel
+              </button>
             </div>
           </div> <!-- /.form-group -->
         </div> <!-- /.modal-footer -->
@@ -227,59 +271,86 @@ HTML template for the customers component.
       <div class="modal-content">
 
         <!-- Form for adding the new customer -->
-        <form class="form-horizontal" name="addForm" data-ng-submit="addCustomer()" novalidate="novalidate">
+        <form class="form-horizontal" name="addForm"
+            data-ng-submit="addCustomer()" novalidate>
 
           <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <button type="button" class="close" data-dismiss="modal"
+                aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
             <h3 class="modal-title">Add a New Customer:</h3>
           </div>
-          <div class="modal-body">
 
+          <div class="modal-body">
             <!-- Name -->
             <div class="form-group">
-              <label class="col-sm-2 control-label" for="nameTextInput">Name</label>
+              <label class="col-sm-2 control-label" for="nameTextInput">
+                  Name
+              </label>
               <div class="col-sm-10">
-                <input data-ng-model="createdCustomer.fullName" name="addFullName" type="text" class="form-control" id="nameTextInput" placeholder="First Last">
+                <input data-ng-model="createdCustomer.fullName"
+                    name="addFullName" type="text" class="form-control"
+                    id="nameTextInput" placeholder="First Last" />
               </div>
             </div>
 
             <!-- Email -->
             <div class="form-group">
-              <label class="col-sm-2 control-label" for="emailTextInput">Email</label>
+              <label class="col-sm-2 control-label" for="emailTextInput">
+                  Email
+              </label>
               <div class="col-sm-10">
-                <input data-ng-model="createdCustomer.email" name="addEmail" type="email" class="form-control" id="emailTextInput" placeholder="yourname@example.com">
+                <input data-ng-model="createdCustomer.email" name="addEmail"
+                    type="email" class="form-control" id="emailTextInput"
+                    placeholder="email@example.com" />
               </div>
             </div>
 
             <!-- Phone number -->
             <div class="form-group">
-              <label class="col-sm-2 control-label" for="telTextInput">Telephone</label>
+              <label class="col-sm-2 control-label" for="telTextInput">
+                  Telephone
+              </label>
               <div class="col-sm-10">
-                <input data-ng-model="createdCustomer.telephone" name="addTelephone" type="text" class="form-control" id="telTextInput" placeholder="(555) 555-1234">
+                <input data-ng-model="createdCustomer.telephone"
+                    name="addTelephone" type="text" class="form-control"
+                    id="telTextInput" placeholder="(555) 555-1234" />
               </div>
             </div>
 
             <!-- Street -->
             <div class="form-group">
-              <label class="col-sm-2 control-label" for="streetTextInput">Street</label>
+              <label class="col-sm-2 control-label" for="streetTextInput">
+                  Street
+              </label>
               <div class="col-sm-10">
-                <input data-ng-model="createdCustomer.street" name="addStreet" type="text" class="form-control" id="streetTextInput" placeholder="123 Main Street">
+                <input data-ng-model="createdCustomer.street" name="addStreet"
+                    type="text" class="form-control" id="streetTextInput"
+                    placeholder="123 Main Street" />
               </div>
             </div>
 
             <!-- City -->
             <div class="form-group">
-              <label class="col-sm-2 control-label" for="cityTextInput">City</label>
+              <label class="col-sm-2 control-label" for="cityTextInput">
+                  City
+              </label>
               <div class="col-sm-10">
-                <input data-ng-model="createdCustomer.city" name="addCity" type="text" class="form-control" id="cityTextInput" placeholder="Your City">
+                <input data-ng-model="createdCustomer.city" name="addCity"
+                    type="text" class="form-control" id="cityTextInput"
+                    placeholder="Your City" />
               </div>
             </div>
 
             <!-- State -->
             <div class="form-group">
-              <label class="col-sm-2 control-label" for="stateTextInput">State</label>
+              <label class="col-sm-2 control-label" for="stateTextInput">
+                  State
+              </label>
               <div class="col-sm-3">
-                <select data-ng-model="createdCustomer.state" class="form-control">
+                <select data-ng-model="createdCustomer.state"
+                    class="form-control">
                   <option label=" "></option>
                   <option value="AL">Alabama</option>
                   <option value="AK">Alaska</option>
@@ -338,9 +409,13 @@ HTML template for the customers component.
 
             <!-- Zip code -->
             <div class="form-group">
-              <label class="col-sm-2 control-label" for="zipTextInput">Zip Code</label>
+              <label class="col-sm-2 control-label" for="zipTextInput">
+                  Zip Code
+              </label>
               <div class="col-sm-3">
-                <input data-ng-model="createdCustomer.zip" name="addZip" type="text" class="form-control" id="zipTextInput" placeholder="54321" required>
+                <input data-ng-model="createdCustomer.zip" name="addZip"
+                    type="text" class="form-control" id="zipTextInput"
+                    placeholder="54321" required />
               </div>
             </div>
 
@@ -350,8 +425,15 @@ HTML template for the customers component.
             <!-- Submit or reset the form -->
             <div class="form-group">
               <div class="col-sm-offset-2 col-sm-10">
-                <button type="submit" class="btn btn-success modalBtn"><i class="fa fa-check fa-2x"></i><br />Add</button>
-                <button type="reset" class="btn btn-danger modalBtn" data-dismiss="modal"><i class="fa fa-times fa-2x"></i><br />Cancel</button>
+                <button type="submit" class="btn btn-success modalBtn">
+                  <i class="fa fa-check fa-2x"></i>
+                  <br />Add
+                </button>
+                <button type="reset" class="btn btn-danger modalBtn"
+                    data-dismiss="modal">
+                  <i class="fa fa-times fa-2x"></i>
+                  <br />Cancel
+                </button>
               </div>
             </div> <!-- /.form-group -->
           </div> <!-- /.modal-footer -->
