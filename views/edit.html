@@ -1,5 +1,7 @@
 <!--
 HTML view for the edit customer form.
+
+TODO: Custom validation.
 -->
 
 <div class="modal-header">
@@ -22,9 +24,14 @@ HTML view for the edit customer form.
           Name
       </label>
       <div class="col-sm-10">
-        <input data-ng-model="editedCustomer.fullName" type="text"
-            class="form-control" id="nameTextInput"
-            placeholder="{{ customerToEdit.fullName }}" />
+        <input data-ng-model="editedCustomer.fullName" name="name"
+            type="text" class="form-control" id="nameTextInput"
+            placeholder="{{ customerToEdit.fullName }}" required />
+          <div class="text-danger formErrorMsg"
+              ng-show="editForm.name.$invalid && editForm.name.$dirty || editForm.name.$touched"
+              ng-hide="editForm.name.$valid">
+            <small>Enter a name.</small>
+          </div>
       </div>
     </div>
 
@@ -34,9 +41,14 @@ HTML view for the edit customer form.
           Email
       </label>
       <div class="col-sm-10">
-        <input data-ng-model="editedCustomer.email" type="email"
-            class="form-control" id="emailTextInput"
-            placeholder="{{ customerToEdit.email }}" />
+        <input data-ng-model="editedCustomer.email"
+            name="email" type="email" class="form-control" id="emailTextInput"
+            placeholder="{{ customerToEdit.email }}" required />
+          <div class="text-danger formErrorMsg"
+              ng-show="editForm.email.$invalid && editForm.email.$dirty || editForm.email.$touched"
+              ng-hide="editForm.email.$valid">
+            <small>Enter a valid email address.</small>
+          </div>
       </div>
     </div>
 
@@ -46,9 +58,14 @@ HTML view for the edit customer form.
           Telephone
       </label>
       <div class="col-sm-10">
-        <input data-ng-model="editedCustomer.telephone" type="text"
+        <input data-ng-model="editedCustomer.telephone" name="phone" type="text"
             class="form-control" id="telTextInput"
-            placeholder="{{ customerToEdit.telephone }}" />
+            placeholder="{{ customerToEdit.telephone }}" required />
+          <div class="text-danger formErrorMsg"
+              ng-show="editForm.phone.$invalid && editForm.phone.$dirty || editForm.phone.$touched"
+              ng-hide="editForm.phone.$valid">
+            <small>Enter the area code and phone number.</small>
+          </div>
       </div>
     </div>
 
@@ -58,9 +75,14 @@ HTML view for the edit customer form.
           Street
       </label>
       <div class="col-sm-10">
-        <input data-ng-model="editedCustomer.street" type="text"
+        <input data-ng-model="editedCustomer.street" name="street" type="text"
             class="form-control" id="streetTextInput"
-            placeholder="{{ customerToEdit.street }}" />
+            placeholder="{{ customerToEdit.street }}" required />
+          <div class="text-danger formErrorMsg"
+              ng-show="editForm.street.$invalid && editForm.street.$dirty || editForm.street.$touched"
+              ng-hide="editForm.street.$valid">
+            <small>Enter a street.</small>
+          </div>
       </div>
     </div>
 
@@ -70,9 +92,14 @@ HTML view for the edit customer form.
           City
       </label>
       <div class="col-sm-10">
-        <input data-ng-model="editedCustomer.city" type="text"
+        <input data-ng-model="editedCustomer.city" name="city" type="text"
             class="form-control" id="cityTextInput"
-            placeholder="{{ customerToEdit.city }}" />
+            placeholder="{{ customerToEdit.city }}" required />
+          <div class="text-danger formErrorMsg"
+              ng-show="editForm.city.$invalid && editForm.city.$dirty || editForm.city.$touched"
+              ng-hide="editForm.city.$valid">
+            <small>Enter a city.</small>
+          </div>
       </div>
     </div>
 
@@ -83,7 +110,7 @@ HTML view for the edit customer form.
       </label>
       <div class="col-sm-3">
         <select data-ng-model="editedCustomer.state"
-            class="form-control">
+            class="form-control" name="state">
           <option label=" "></option>
           <option value="AL">Alabama</option>
           <option value="AK">Alaska</option>
@@ -137,6 +164,11 @@ HTML view for the edit customer form.
           <option value="WI">Wisconsin</option>
           <option value="WY">Wyoming</option>
         </select>
+        <div class="text-danger formErrorMsg"
+            ng-show="editForm.state.$invalid && editForm.state.$dirty || editForm.state.$touched"
+            ng-hide="editForm.state.$valid">
+          <small>Enter a state.</small>
+        </div>
       </div>
     </div>
 
@@ -146,9 +178,14 @@ HTML view for the edit customer form.
           Zip Code
       </label>
       <div class="col-sm-3">
-        <input data-ng-model="editedCustomer.zip" type="text"
+        <input data-ng-model="editedCustomer.zip" name="zip" type="text"
             class="form-control" id="zipTextInput"
-            placeholder="{{ customerToEdit.zip }}" />
+            placeholder="{{ customerToEdit.zip }}" required />
+          <div class="text-danger formErrorMsg"
+              ng-show="editForm.zip.$invalid && editForm.zip.$dirty || editForm.zip.$touched"
+              ng-hide="editForm.zip.$valid">
+            <small>Enter a zip code.</small>
+          </div>
       </div>
     </div>
 
