@@ -17,9 +17,9 @@
  *   - Form validation
  *   - Adding tests
  *   - Improve documentation with ngAnnotate
+ *   - Integrate the "controller as" syntax to reduce/eliminate "scope soup"
  *   - UI enhancements
- *     -- AngularUI library for interacting with Bootstrap modals
- *   - Move business logic out of the list controller and into a factory
+ *   - Improve README.md
  */
 
 var angular = require('angular');

@@ -1,9 +1,9 @@
-/*
-customer_manager_app
-/components/customers/customers.css
-
-Custom stylesheet for the customers.html template.
-*/
+/**
+ * Custom stylesheet for the list.html template.
+ *
+ * TODO: Fix minor centering isse with modalBtn class (font-awesome characters
+ * appear slightly off-center).
+ */
 
 .well {
   line-height: 34px;
@@ -22,6 +22,7 @@ Custom stylesheet for the customers.html template.
   height: 75px;
   width: 75px;
 }
+
 
 input .ng-invalid .ng-dirty {
   border: 1px solid red;
