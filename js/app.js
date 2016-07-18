@@ -19,15 +19,18 @@
  *   - Improve documentation with ngAnnotate
  *   - UI enhancements
  *     -- AngularUI library for interacting with Bootstrap modals
+ *   - Move business logic out of the list controller and into a factory
  */
 
 var angular = require('angular');
 require('angular-route');
 require('angular-resource');
+require('angular-ui-bootstrap');
 
 var app = angular.module('customerApp', [
   'ngRoute',
-  'ngResource'
+  'ngResource',
+  'ui.bootstrap'
 ]);
 
 require('./filters');

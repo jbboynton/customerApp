@@ -7,3 +7,4 @@
 var app = require('angular').module('customerApp');
 
 app.controller('ListCtrl', require('./list.js'));
+app.controller('FormCtrl', require('./form.js'));

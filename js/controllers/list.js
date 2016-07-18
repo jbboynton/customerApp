@@ -1,5 +1,5 @@
 /**
- * App controller definition file.
+ * Customer list controller definition file.
  *
  * TODO: Move business logic into the service module. Probably add another
  * controller to handle the form elements and/or modals.
@@ -7,7 +7,8 @@
 
 'use strict';
 
-module.exports = function($scope, CustomerDataService) {
+module.exports = function($scope, $uibModal, $uibModalInstance,
+    CustomerDataService) {
 
   // --------------------------------------------------------------------------
   // --  Get the list of customers --------------------------------------------
@@ -57,6 +58,19 @@ module.exports = function($scope, CustomerDataService) {
 
   // --------------------------------------------------------------------------
   // --  Add a customer -------------------------------------------------------
+
+  $scope.showAddCustomerForm = function() {
+    $uibModal.open({
+      controller: 'ListCtrl',
+      templateUrl: 'views/add.html'
+    });
+    console.log('got this far');
+  };
+
+  $scope.closeForm = function() {
+    console.log('try to dismiss');
+    $uibModalInstance.dismiss();
+  };
 
   /* New object to store the new customer's data */
   $scope.createNewCustomer = function() {
