@@ -1,7 +1,7 @@
 <!--
 HTML view for the edit customer form.
 
-TODO: Custom validation.
+TODO: fix form submission.
 -->
 
 <div class="modal-header">
@@ -16,7 +16,8 @@ TODO: Custom validation.
 
 <div class="modal-body">
   <!-- Form for editing the customer's record -->
-  <form class="form-horizontal" name="editForm" novalidate>
+  <form class="form-horizontal" name="editForm"
+      data-ng-submit="updateCustomer()" novalidate>
 
     <!-- Name -->
     <div class="form-group">
@@ -24,19 +25,13 @@ TODO: Custom validation.
           Name
       </label>
       <div class="col-sm-10">
-        <input data-ng-model="editedCustomer.fullName" name="name"
-            type="text" class="form-control" id="nameTextInput"
-            placeholder="{{ customerToEdit.fullName }}" ng-pattern="regexName"
+        <input data-ng-model="customerToEdit.fullName" name="name"
+            type="text" class="form-control" data-ng-pattern="nameRegex"
             required />
         <div class="text-danger formErrorMsg"
-            ng-show="editForm.name.$touched && editForm.name.$dirty &&
-            editForm.name.$invalid">
+            data-ng-show="editForm.name.$touched && editForm.name.$invalid">
           <small>Enter a first and last name.</small>
         </div>
-        <span class="text-danger formErrorMsg"
-            ng-show="editForm.name.$touched && editForm.name.$error.required">
-          <small>This field is required.</small>
-        </span>
       </div>
     </div>
 
@@ -46,14 +41,12 @@ TODO: Custom validation.
           Email
       </label>
       <div class="col-sm-10">
-        <input data-ng-model="editedCustomer.email"
-            name="email" type="email" class="form-control" id="emailTextInput"
-            placeholder="{{ customerToEdit.email }}" required />
-          <div class="text-danger formErrorMsg"
-              ng-show="editForm.email.$invalid && editForm.email.$dirty || editForm.email.$touched"
-              ng-hide="editForm.email.$valid">
-            <small>Enter a valid email address.</small>
-          </div>
+        <input data-ng-model="customerToEdit.email"
+            name="email" type="email" class="form-control" required />
+        <div class="text-danger formErrorMsg"
+            data-ng-show="editForm.email.$touched && editForm.email.$invalid">
+          <small>Enter a valid email address.</small>
+        </div>
       </div>
     </div>
 
@@ -63,14 +56,12 @@ TODO: Custom validation.
           Telephone
       </label>
       <div class="col-sm-10">
-        <input data-ng-model="editedCustomer.telephone" name="phone" type="text"
-            class="form-control" id="telTextInput"
-            placeholder="{{ customerToEdit.telephone }}"
-            ng-pattern="phoneRegex" required />
-          <div class="text-danger formErrorMsg"
-              ng-show="editForm.phone.$invalid">
-            <small>Enter the area code and phone number.</small>
-          </div>
+        <input data-ng-model="customerToEdit.telephone" name="phone" type="text"
+            class="form-control" data-ng-pattern="phoneRegex" required />
+        <div class="text-danger formErrorMsg"
+            data-ng-show="editForm.phone.$touched && editForm.phone.$invalid">
+          <small>Enter an area code and phone number.</small>
+        </div>
       </div>
     </div>
 
@@ -80,14 +71,8 @@ TODO: Custom validation.
           Street
       </label>
       <div class="col-sm-10">
-        <input data-ng-model="editedCustomer.street" name="street" type="text"
-            class="form-control" id="streetTextInput"
-            placeholder="{{ customerToEdit.street }}" required />
-          <div class="text-danger formErrorMsg"
-              ng-show="editForm.street.$invalid && editForm.street.$dirty || editForm.street.$touched"
-              ng-hide="editForm.street.$valid">
-            <small>Enter a street.</small>
-          </div>
+        <input data-ng-model="customerToEdit.street" name="street" type="text"
+            class="form-control" required />
       </div>
     </div>
 
@@ -97,14 +82,8 @@ TODO: Custom validation.
           City
       </label>
       <div class="col-sm-10">
-        <input data-ng-model="editedCustomer.city" name="city" type="text"
-            class="form-control" id="cityTextInput"
-            placeholder="{{ customerToEdit.city }}" required />
-          <div class="text-danger formErrorMsg"
-              ng-show="editForm.city.$invalid && editForm.city.$dirty || editForm.city.$touched"
-              ng-hide="editForm.city.$valid">
-            <small>Enter a city.</small>
-          </div>
+        <input data-ng-model="customerToEdit.city" name="city" type="text"
+            class="form-control" required />
       </div>
     </div>
 
@@ -113,9 +92,9 @@ TODO: Custom validation.
       <label class="col-sm-2 control-label" for="stateTextInput">
           State
       </label>
-      <div class="col-sm-3">
-        <select data-ng-model="editedCustomer.state"
-            class="form-control" name="state">
+      <div class="col-sm-4">
+        <select data-ng-model="customerToEdit.state"
+            class="form-control" name="state" required>
           <option label=" "></option>
           <option value="AL">Alabama</option>
           <option value="AK">Alaska</option>
@@ -169,11 +148,6 @@ TODO: Custom validation.
           <option value="WI">Wisconsin</option>
           <option value="WY">Wyoming</option>
         </select>
-        <div class="text-danger formErrorMsg"
-            ng-show="editForm.state.$invalid && editForm.state.$dirty || editForm.state.$touched"
-            ng-hide="editForm.state.$valid">
-          <small>Enter a state.</small>
-        </div>
       </div>
     </div>
 
@@ -182,15 +156,13 @@ TODO: Custom validation.
       <label class="col-sm-2 control-label" for="zipTextInput">
           Zip Code
       </label>
-      <div class="col-sm-3">
-        <input data-ng-model="editedCustomer.zip" name="zip" type="text"
-            class="form-control" id="zipTextInput"
-            placeholder="{{ customerToEdit.zip }}" required />
-          <div class="text-danger formErrorMsg"
-              ng-show="editForm.zip.$invalid && editForm.zip.$dirty || editForm.zip.$touched"
-              ng-hide="editForm.zip.$valid">
-            <small>Enter a zip code.</small>
-          </div>
+      <div class="col-sm-2">
+        <input data-ng-model="customerToEdit.zip" name="zip" type="text"
+            class="form-control" data-ng-pattern="zipRegex" required />
+        <div class="text-danger formErrorMsg"
+            data-ng-show="editForm.zip.$touched && editForm.zip.$invalid">
+          <small>Enter a valid zip code.</small>
+        </div>
       </div>
     </div>
 
@@ -201,8 +173,8 @@ TODO: Custom validation.
   <!-- Submit or reset the form. -->
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
-      <button data-ng-click="updateCustomer()" type="button"
-          class="btn btn-success modalBtn" data-dismiss="modal">
+      <button type="submit" class="btn btn-success modalBtn"
+          data-ng-disabled="editForm.$invalid" data-ng-click="updateCustomer()">
         <i class="fa fa-check fa-2x"></i>
         <br />Save</button>
       <button type="reset" class="btn btn-danger modalBtn"

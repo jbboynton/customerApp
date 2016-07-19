@@ -6,7 +6,8 @@
 
 module.exports = function($scope, $uibModalInstance, CustomerDataService) {
 
-  /* Validation, just to demonstrate validation of form input. /*
+  /* Validation, just to demonstrate validation of form input. Not meant to
+      be comprehensive, but just a preliminary validation on the client-side. /*
 
   /* Regex for validating phone numbers.
 
@@ -38,7 +39,7 @@ module.exports = function($scope, $uibModalInstance, CustomerDataService) {
       - delimiter                                  :  /
       - beginning of string                        :  ^
       - (one or more) characters 'a' through 'z',  :  [a-z
-          (a space),                               :  (space between z and ,)
+          (a space),                               :  (space)
           , (a comma),                             :  ,
           . (a period),                            :  .
           ' (an apostraphe), or                    :  '
@@ -48,7 +49,19 @@ module.exports = function($scope, $uibModalInstance, CustomerDataService) {
 
       Flags:
       i: ignore case
-  */  
+  */
+  $scope.nameRegex = new RegExp(/^[a-z ,.-]+$/, 'i');
+
+  /* Regex for zip codes.
+
+      True if (in order):
+      - delimiter              :  /
+      - beginning of string    :  ^
+      - 5 digits, 0 through 9  :  [0-9]{5}
+      - end of string          :  $
+      - delimiter              :  /
+  */
+  $scope.zipRegex = new RegExp(/^[0-9]{5}$/);
 
   /* Dismiss the modal */
   $scope.dismiss = function() {
@@ -70,17 +83,10 @@ module.exports = function($scope, $uibModalInstance, CustomerDataService) {
 
   /* Update the specified customer */
   $scope.updateCustomer = function() {
+
     CustomerDataService.update(
       { id: $scope.customerToEdit.id },
-      {
-        fullName: $scope.editedCustomer.fullName,
-        email: $scope.editedCustomer.email,
-        telephone: $scope.editedCustomer.telephone,
-        street: $scope.editedCustomer.street,
-        city: $scope.editedCustomer.city,
-        state: $scope.editedCustomer.state,
-        zip: $scope.editedCustomer.zip
-      },
+      $scope.customerToEdit,
       function() {
         $scope.refreshCustomers();
       }
