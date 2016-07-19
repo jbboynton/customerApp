@@ -26,12 +26,17 @@ TODO: Custom validation.
       <div class="col-sm-10">
         <input data-ng-model="editedCustomer.fullName" name="name"
             type="text" class="form-control" id="nameTextInput"
-            placeholder="{{ customerToEdit.fullName }}" required />
-          <div class="text-danger formErrorMsg"
-              ng-show="editForm.name.$invalid && editForm.name.$dirty || editForm.name.$touched"
-              ng-hide="editForm.name.$valid">
-            <small>Enter a name.</small>
-          </div>
+            placeholder="{{ customerToEdit.fullName }}" ng-pattern="regexName"
+            required />
+        <div class="text-danger formErrorMsg"
+            ng-show="editForm.name.$touched && editForm.name.$dirty &&
+            editForm.name.$invalid">
+          <small>Enter a first and last name.</small>
+        </div>
+        <span class="text-danger formErrorMsg"
+            ng-show="editForm.name.$touched && editForm.name.$error.required">
+          <small>This field is required.</small>
+        </span>
       </div>
     </div>
 
@@ -60,10 +65,10 @@ TODO: Custom validation.
       <div class="col-sm-10">
         <input data-ng-model="editedCustomer.telephone" name="phone" type="text"
             class="form-control" id="telTextInput"
-            placeholder="{{ customerToEdit.telephone }}" required />
+            placeholder="{{ customerToEdit.telephone }}"
+            ng-pattern="phoneRegex" required />
           <div class="text-danger formErrorMsg"
-              ng-show="editForm.phone.$invalid && editForm.phone.$dirty || editForm.phone.$touched"
-              ng-hide="editForm.phone.$valid">
+              ng-show="editForm.phone.$invalid">
             <small>Enter the area code and phone number.</small>
           </div>
       </div>
