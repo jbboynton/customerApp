@@ -5,21 +5,23 @@
 'use strict';
 
 /**
- * In my first attempt, I tried to structure my project based on some best-
- * practices that I found on the AngularJS website.  After spending a few weeks
- * learning more about the framework, I decided to try an alternate approach --
- * this time around, I've organized my code into CommonJS modules, and used a
- * tool called Browserify to run everything in the browser.  Browserify
- * bundles all the modules and dependencies together, and outputs them to a
- * script that can be loaded in the browser.
+ * In order to simplify the project's structure, this application is organized
+ * into CommonJS modules.  The CommonJS format allows each section of the app
+ * to be required in, and as a result, unrelated components are kept completely
+ * isolated, making the code easier to understand and maintain.
+ *
+ * Another advantage of using the CommonJS syntax is the ability to integrate
+ * with a tool called Browserify.  Browserify compiles modules by "bundling"
+ * modules and dependencies together, then producing a single script that can
+ * then be loaded in the browser.  This elimiates the need for redundant script
+ * tags in the HTML, and ensures that all dependencies are loaded in the
+ * correct order.
  *
  * TODO list:
- *   - Form validation
+ *   - Fix issue with form not submitting/using both ng-submit and ng-click
+ *   - Integrate the "controller as" syntax to reduce/eliminate $scope
  *   - Adding tests
- *   - Improve documentation with ngAnnotate
- *   - Integrate the "controller as" syntax to reduce/eliminate "scope soup"
- *   - UI enhancements
- *   - Improve README.md
+ *   - Design and style enhancements
  */
 
 var angular = require('angular');
