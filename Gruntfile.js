@@ -6,32 +6,31 @@ module.exports = function(grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
         browserify: {
-            dev: {
+            dist: {
                 files: {
-                    'bundle.js': ['app/js/app.js']
+                    'dist/bundle.js': ['app/js/app.js']
                 },
                 options: {
-                    bundleOptions: {
+                    browserifyOptions: {
                         debug: true
                     }
                 }
             }
         },
         karma: {
-            unit: {
-                configFile: 'karma.conf.js'
-            },
             continuous: {
-                configFile: 'karma.conf.js',
-                singleRun: true,
-                browsers: ['PhantomJS']
+                configFile: 'karma.conf.js'
             }
         },
         watch: {
-            files: [
-                'app/**/*.js', 'test/**/*.js'
-            ],
-            tasks: 'karma:continuous'
+            karma: {
+                files: ['app/**/*.js', 'test/**/*.js'],
+                tasks: 'karma:continuous'
+            },
+            browserify: {
+                files: 'app/**/*.js',
+                tasks: 'browserify'
+            }
         }
     });
 
