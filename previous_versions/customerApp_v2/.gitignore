@@ -1,0 +1,11 @@
+# customerApp
+# .gitignore
+
+# Vendor directory
+lib
+
+# Dependency directories
+node_modules
+
+# Misc.
+*.pdf

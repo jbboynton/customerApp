@@ -1,0 +1,116 @@
+<!--
+cybercare_app
+/index.html
+
+HTML main content.
+Contains essential elements that are required on every page, such as links to
+stylesheets and scripts.  Additionally, this code provides the navbar, and the
+"ng-view" directive.
+-->
+
+<!DOCTYPE html>
+<html data-ng-app="app">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Manage Your Customer List</title>
+
+    <!-- Library Stylesheets -->
+    <link rel="stylesheet" href="/lib/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+    <!-- Custom stylesheets and favicon file -->
+    <link rel="stylesheet" href="/app.css">
+    <link rel="stylesheet" href="/components/customers/customers.css">
+    <link rel="icon" href="/favicon.ico">
+  </head>
+
+  <body>
+    <!-- Fixed, full-length navigation bar -->
+    <section class="navigation">
+      <nav class="navbar navbar-inverse navbar-static-top">
+        <div class="container-fluid">
+
+          <!-- Collapse the navbar on narrow displays -->
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="collapsable-navbar" aria-expanded="false">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            <a class="navbar-brand">
+              <i class="fa fa-laptop fa-inverse" aria-hidden="true"></i>
+            </a>
+          </div>
+
+          <!--
+          The right side of the navbar has several links to mockapi.io, a
+            website that mimics a RESTful API.
+
+            Link descriptions, in order from left to right:
+
+                + Link to JSON dummy data
+                    o Link to the collection used by this application.  All
+                      customer records are stored as JSON objects in the
+                      collection.
+                + mockapi.io Documentation
+                    o Link to the documentation provided by mockapi.io.
+                + mockapi.io Login
+                    o Link to the mockapi.io user login page.
+                    o Sometimes after visiting this link, I'm unable to use the
+                      browser's back button to return to my local server.  I
+                      believe it's on their end (browser console shows a bunch
+                      of ReactJS-related warnings), but I'll follow up on it.
+          -->
+          <div class="collapse navbar-collapse" id="collapsable-navbar">
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="http://577b334c3d21811100a14cd3.mockapi.io/api/customers/">Link to JSON dummy data<span class="sr-only">(current)</span></a></li>
+              <li><a href="http://www.mockapi.io/#/docs">mockapi.io Documentation</a></li>
+              <li><a href="http://www.mockapi.io/#/login">mockapi.io Login</a></li>
+            </ul>
+          </div> <!-- /.navbar-collapse -->
+
+        </div> <!-- /.container-fluid -->
+      </nav>
+    </section> <!-- /.navigation -->
+
+    <!-- Page wrapper -->
+    <section class="wrapper">
+      <div class="mainContent">
+        <div class="container">
+
+          <!-- Webpage header -->
+          <div class="page-header">
+            <h1>Manage Your Customer List<br><small>Create, list, update, and delete customer records.</small></h1><br>
+          </div> <!-- /.page-header -->
+
+          <!-- Views placeholder -->
+          <div data-ng-view></div>
+
+        </div> <!-- /.container -->
+      </div> <!-- /.mainContent -->
+    </section> <!-- /.wrapper -->
+
+    <!-- Vendor libraries -->
+    <!-- AngularJS libraries -->
+    <script src="/lib/angular/angular.js"></script>
+    <script src="/lib/angular/angular-resource.js"></script>
+    <script src="/lib/angular/angular-route.js"></script>
+
+    <!-- angular-possessive-filter library -->
+    <script src="/lib/angular-possessive-filter/possessive.js"></script>
+
+    <!-- jQuery library (jQuery is only used for Bootstrap functionality) -->
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+    <!-- Bootstrap library -->
+    <script src="/lib/bootstrap/bootstrap.min.js"></script>
+
+    <!-- App scripts -->
+    <script src="/app.js"></script>
+
+  </body>
+</html>

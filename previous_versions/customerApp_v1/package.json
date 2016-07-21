@@ -1,0 +1,20 @@
+{
+  "name": "cybercare_app",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A single-page application built with AngularJS that allows a user to manage a list of customers.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "/home/james/Dropbox/Git/cybercare_app_repo.git"
+  },
+  "author": "James Boynton",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
+}

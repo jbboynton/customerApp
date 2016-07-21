@@ -1,0 +1,8 @@
+# cybercare_app
+# .gitignore
+
+# Libraries
+lib
+
+# Dependency directories
+node_modules
