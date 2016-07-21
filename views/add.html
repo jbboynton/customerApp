@@ -174,13 +174,16 @@ TODO: fix form submission.
       <input data-ng-model="createdCustomer.zip" name="zip"
           type="text" class="form-control" placeholder="54321"
           data-ng-pattern="zipRegex" required />
-      <div class="text-danger formErrorMsg"
-          data-ng-show="addForm.zip.$touched && addForm.zip.$invalid">
-        <small>Enter a valid zip code.</small>
-      </div>
+    </div>
+
+    <!-- This help text needs its own column so that it can be wider than the
+        text box -->
+    <div class="col-sm-10 col-sm-offset-2 text-danger formErrorMsg"
+        data-ng-show="addForm.zip.$touched && addForm.zip.$invalid">
+      <small>Enter a valid zip code.</small>
     </div>
   </div>
-</form>
+
 
 
 </div> <!-- /.modal-body -->
