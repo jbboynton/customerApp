@@ -3,6 +3,12 @@
 A single-page application built with AngularJS that allows a user to perform
 CRUD operations on a list of customers.
 
+## Goals for version 3
+
+1.  Integrate automatic building and testing with Grunt
+2.  Execute unit and endpoint tests
+3.  Design the app around the lessons learned from versions 1 and 2
+
 ## How to quickly get this app running
 
 ### 1. Install Node.js
