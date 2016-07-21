@@ -73,6 +73,10 @@ TODO: fix form submission.
       <div class="col-sm-10">
         <input data-ng-model="customerToEdit.street" name="street" type="text"
             class="form-control" required />
+        <div class="text-danger formErrorMsg"
+            data-ng-show="editForm.street.$touched && editForm.street.$error.required">
+          <small>Enter a street.</small>
+        </div>
       </div>
     </div>
 
@@ -84,6 +88,10 @@ TODO: fix form submission.
       <div class="col-sm-10">
         <input data-ng-model="customerToEdit.city" name="city" type="text"
             class="form-control" required />
+        <div class="text-danger formErrorMsg"
+            data-ng-show="editForm.city.$touched && editForm.city.$error.required">
+          <small>Enter a city.</small>
+        </div>
       </div>
     </div>
 
@@ -149,8 +157,7 @@ TODO: fix form submission.
           <option value="WY">Wyoming</option>
         </select>
         <div class="text-danger formErrorMsg"
-            ng-show="editForm.state.$invalid && editForm.state.$dirty || editForm.state.$touched"
-            ng-hide="editForm.state.$valid">
+            data-ng-show="editForm.state.$touched && editForm.state.$error.required">
           <small>Enter a state.</small>
         </div>
       </div>
