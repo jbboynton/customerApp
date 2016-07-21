@@ -1,0 +1,39 @@
+{
+  "name": "customer-app",
+  "version": "1.0.0",
+  "description": "A single-page application built with AngularJS that allows a user to perform CRUD operations on a list of customers.",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jbboynton/customerApp.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jbboynton/customerApp/issues"
+  },
+  "homepage": "https://github.com/jbboynton/customerApp#readme",
+  "devDependencies": {
+    "angular-mocks": "^1.5.7",
+    "grunt": "^1.0.1",
+    "grunt-browserify": "^5.0.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-karma": "^2.0.0",
+    "jasmine-core": "^2.4.1",
+    "karma": "^1.1.1",
+    "karma-browserify": "^5.1.0",
+    "karma-jasmine": "^1.0.2",
+    "karma-phantomjs-launcher": "^1.0.1"
+  },
+  "dependencies": {
+    "angular": "^1.5.7",
+    "angular-resource": "^1.5.7",
+    "angular-route": "^1.5.7"
+  }
+}
