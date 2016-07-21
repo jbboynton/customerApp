@@ -11,7 +11,7 @@ Download Node at https://nodejs.org and install on your machine.
 
 ### 2. Clone this repository
 
-### 3. Install Node modules in a terminal
+### 3. Install dependencies
 
 Open a terminal and browse to the root directory of the project. Run
 "npm install", and Node should do the rest.
