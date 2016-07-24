@@ -1,0 +1,207 @@
+<!--
+HTML view for the add customer form.
+
+TODO: fix form submission.
+-->
+
+<div class="modal-header">
+  <button type="button" class="close" data-dismiss="modal"
+      aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  <h3 class="modal-title">Add a New Customer:</h3>
+</div> <!-- /.modal-header -->
+
+<div class="modal-body">
+
+  <!-- Form for adding the new customer -->
+  <form class="form-horizontal" name="addForm" data-ng-submit="vm.addCustomer()"
+      novalidate>
+
+  <!-- Name -->
+  <div class="form-group">
+    <label class="col-sm-2 control-label" for="nameTextInput">
+        Name
+    </label>
+    <div class="col-sm-10">
+      <input data-ng-model="vm.createdCustomer.fullName"
+          name="name" type="text" class="form-control" placeholder="First Last"
+          data-ng-pattern="vm.nameRegex" required />
+      <div class="text-danger formErrorMsg"
+          data-ng-show="addForm.name.$touched && addForm.name.$invalid">
+        <small>Enter a first and last name.</small>
+      </div>
+    </div>
+  </div>
+
+  <!-- Email -->
+  <div class="form-group">
+    <label class="col-sm-2 control-label" for="emailTextInput">
+        Email
+    </label>
+    <div class="col-sm-10">
+      <input data-ng-model="vm.createdCustomer.email" name="email"
+          type="email" class="form-control" placeholder="email@example.com"
+          required />
+      <div class="text-danger formErrorMsg"
+          data-ng-show="addForm.email.$touched && addForm.email.$invalid">
+        <small>Enter a valid email address.</small>
+      </div>
+    </div>
+  </div>
+
+  <!-- Phone number -->
+  <div class="form-group">
+    <label class="col-sm-2 control-label" for="telTextInput">
+        Telephone
+    </label>
+    <div class="col-sm-10">
+      <input data-ng-model="vm.createdCustomer.telephone"
+          name="phone" type="text" class="form-control"
+          placeholder="(555) 555-1234" data-ng-pattern="vm.phoneRegex" required />
+      <div class="text-danger formErrorMsg"
+          data-ng-show="addForm.phone.$touched && addForm.phone.$invalid">
+        <small>Enter an area code and phone number.</small>
+      </div>
+    </div>
+  </div>
+
+  <!-- Street -->
+  <div class="form-group">
+    <label class="col-sm-2 control-label" for="streetTextInput">
+        Street
+    </label>
+    <div class="col-sm-10">
+      <input data-ng-model="vm.createdCustomer.street" name="street"
+          type="text" class="form-control" placeholder="123 Main Street"
+          required />
+      <div class="text-danger formErrorMsg"
+          data-ng-show="addForm.street.$touched && addForm.street.$error.required">
+        <small>Enter a street.</small>
+      </div>
+    </div>
+  </div>
+
+  <!-- City -->
+  <div class="form-group">
+    <label class="col-sm-2 control-label" for="cityTextInput">
+        City
+    </label>
+    <div class="col-sm-10">
+      <input data-ng-model="vm.createdCustomer.city" name="city"
+          type="text" class="form-control" placeholder="Your City" required />
+      <div class="text-danger formErrorMsg"
+          data-ng-show="addForm.city.$touched && addForm.city.$error.required">
+        <small>Enter a city.</small>
+      </div>
+    </div>
+  </div>
+
+  <!-- State -->
+  <div class="form-group">
+    <label class="col-sm-2 control-label" for="stateTextInput">
+        State
+    </label>
+    <div class="col-sm-5">
+      <select data-ng-model="vm.createdCustomer.state"
+          class="form-control" name="state" required>
+        <option label=" "></option>
+        <option value="AL">Alabama</option>
+        <option value="AK">Alaska</option>
+        <option value="AZ">Arizona</option>
+        <option value="AR">Arkansas</option>
+        <option value="CA">California</option>
+        <option value="CO">Colorado</option>
+        <option value="CT">Connecticut</option>
+        <option value="DE">Delaware</option>
+        <option value="DC">District Of Columbia</option>
+        <option value="FL">Florida</option>
+        <option value="GA">Georgia</option>
+        <option value="HI">Hawaii</option>
+        <option value="ID">Idaho</option>
+        <option value="IL">Illinois</option>
+        <option value="IN">Indiana</option>
+        <option value="IA">Iowa</option>
+        <option value="KS">Kansas</option>
+        <option value="KY">Kentucky</option>
+        <option value="LA">Louisiana</option>
+        <option value="ME">Maine</option>
+        <option value="MD">Maryland</option>
+        <option value="MA">Massachusetts</option>
+        <option value="MI">Michigan</option>
+        <option value="MN">Minnesota</option>
+        <option value="MS">Mississippi</option>
+        <option value="MO">Missouri</option>
+        <option value="MT">Montana</option>
+        <option value="NE">Nebraska</option>
+        <option value="NV">Nevada</option>
+        <option value="NH">New Hampshire</option>
+        <option value="NJ">New Jersey</option>
+        <option value="NM">New Mexico</option>
+        <option value="NY">New York</option>
+        <option value="NC">North Carolina</option>
+        <option value="ND">North Dakota</option>
+        <option value="OH">Ohio</option>
+        <option value="OK">Oklahoma</option>
+        <option value="OR">Oregon</option>
+        <option value="PA">Pennsylvania</option>
+        <option value="RI">Rhode Island</option>
+        <option value="SC">South Carolina</option>
+        <option value="SD">South Dakota</option>
+        <option value="TN">Tennessee</option>
+        <option value="TX">Texas</option>
+        <option value="UT">Utah</option>
+        <option value="VT">Vermont</option>
+        <option value="VA">Virginia</option>
+        <option value="WA">Washington</option>
+        <option value="WV">West Virginia</option>
+        <option value="WI">Wisconsin</option>
+        <option value="WY">Wyoming</option>
+      </select>
+      <div class="text-danger formErrorMsg"
+          data-ng-show="addForm.state.$touched && addForm.state.$error.required">
+        <small>Enter a state.</small>
+      </div>
+    </div>
+  </div>
+
+  <!-- Zip code -->
+  <div class="form-group">
+    <label class="col-sm-2 control-label" for="zipTextInput">
+        Zip Code
+    </label>
+    <div class="col-sm-2">
+      <input data-ng-model="vm.createdCustomer.zip" name="zip"
+          type="text" class="form-control" placeholder="54321"
+          data-ng-pattern="vm.zipRegex" required />
+    </div>
+
+    <!-- This help text needs its own column so that it can be wider than the
+        text box -->
+    <div class="col-sm-10 col-sm-offset-2 text-danger formErrorMsg"
+        data-ng-show="addForm.zip.$touched && addForm.zip.$invalid">
+      <small>Enter a valid zip code.</small>
+    </div>
+  </div>
+
+
+
+</div> <!-- /.modal-body -->
+
+<div class="modal-footer">
+  <!-- Submit or reset the form -->
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" class="btn btn-success modalBtn"
+          data-ng-disabled="addForm.$invalid" data-ng-click="vm.addCustomer()">
+        <i class="fa fa-check fa-2x"></i>
+        <br />Add
+      </button>
+      <button type="reset" class="btn btn-danger modalBtn"
+          data-ng-click="vm.dismiss()">
+        <i class="fa fa-times fa-2x"></i>
+        <br />Cancel
+      </button>
+    </div>
+  </div> <!-- /.form-group -->
+</div> <!-- /.modal-footer -->

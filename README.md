@@ -13,14 +13,17 @@ CRUD operations on a list of customers.
 
 ### 1. Install Node.js
 
-Download Node at https://nodejs.org and install on your machine.
+Download Node at <https://nodejs.org> and install on your machine.
 
 ### 2. Clone this repository
 
 ### 3. Install dependencies
 
-Open a terminal and browse to the root directory of the project. Run
-"npm install", and Node should do the rest.
+Open a terminal and browse to the root directory of the project.  Type
+"npm install" and hit enter.  This should install all essential dependencies
+locally to your node_modules directory.  If you want to also install the
+devDependencies, run "npm run installCLItools" to install the command line
+tools.
 
 ### 4. Start up the Express server
 

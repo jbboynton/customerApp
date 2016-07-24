@@ -7,9 +7,8 @@ module.exports = function(grunt) {
         pkg: grunt.file.readJSON('package.json'),
         browserify: {
             dist: {
-                files: {
-                    'dist/bundle.js': ['app/js/app.js']
-                },
+                src: 'app/js/app.js',
+                dest: 'dist/bundle.js',
                 options: {
                     browserifyOptions: {
                         debug: true

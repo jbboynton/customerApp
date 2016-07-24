@@ -1,0 +1,85 @@
+<!--
+HTML template for the customers component.
+-->
+
+<!-- The list of customers, divided into a header and a body -->
+<section class="customerList">
+  <section class="listHeading">
+
+    <div class="row">
+      <div class="col-xs-12">
+
+        <!-- Well panel displays the number of records in the list, as well as
+          a button to add a customer. -->
+        <div class="well well-sm">
+
+          <div class="row">
+            <div class="col-xs-offset-1 col-xs-2">
+              <strong>Add a customer?</strong>
+            </div>
+            <div class="col-xs-3">
+              <a data-ng-click="vm.showAddCustomerForm()" class="btn btn-sm
+                  btn-success">
+                <i class="fa fa-plus"></i>
+              </a>
+              <!-- <a data-ng-click="createNewCustomer()" class="btn btn-sm
+                  btn-success" data-toggle="modal" data-target="#addModal">
+                <i class="fa fa-plus"></i>
+              </a> -->
+            </div>
+            <div class="col-xs-offset-1 col-xs-3">
+              <div class="pull-right">
+                <strong>Number of records: </strong>
+              </div>
+            </div>
+            <div class="col-xs-2">
+              {{ vm.numCustomers }}
+            </div>
+          </div> <!-- /.row -->
+
+        </div> <!-- /.well -->
+      </div> <!-- /.col-xs-12 -->
+    </div> <!-- /.row -->
+  </section> <!-- /.listHeading -->
+
+  <!-- The list of customers, displayed in a table -->
+  <section class="listBody">
+    <div class="row">
+      <div class="col-xs-12">
+
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Telephone</th>
+              <th>Street</th>
+              <th>City</th>
+              <th>State</th>
+              <th>Zip Code</th>
+              <th> </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr data-ng-repeat="customer in customers">
+              <td>{{ customer.fullName }}</td>
+              <td>{{ customer.email }}</td>
+              <td>{{ customer.telephone }}</td>
+              <td>{{ customer.street }}</td>
+              <td>{{ customer.city }}</td>
+              <td>{{ customer.state }}</td>
+              <td>{{ customer.zip }}</td>
+              <td>
+                <a data-ng-click="vm.showEditCustomerForm(customer.id)"
+                    class="btn btn-small btn-primary">Edit</a>
+                <a data-ng-click="vm.removeCustomer(customer.id)" class="btn
+                    btn-small btn-danger">Remove</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div> <!-- /.col-xs-12 -->
+    </div> <!-- /.row -->
+  </section> <!-- /.listBody -->
+</section> <!-- /.customerList -->
