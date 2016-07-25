@@ -8,6 +8,7 @@ module.exports = function($scope, $uibModal, CustomerDataService) {
 
   var vm = this;
 
+  /* Refresh the customer list */
   $scope.refreshCustomers = function() {
     $scope.customers = CustomerDataService.query(function() {
       vm.numCustomers = $scope.customers.length;
@@ -16,6 +17,7 @@ module.exports = function($scope, $uibModal, CustomerDataService) {
 
   $scope.refreshCustomers();
 
+  /* Show a modal dialog for editing a customer */
   vm.showEditCustomerForm = function(customerID) {
     $scope.customerToEdit = CustomerDataService.get({ id: customerID });
 
@@ -26,6 +28,7 @@ module.exports = function($scope, $uibModal, CustomerDataService) {
     });
   };
 
+  /* Show a modal dialog for adding a customer */
   vm.showAddCustomerForm = function() {
     var modalInstance = $uibModal.open({
       controller: 'ModalController as vm',
