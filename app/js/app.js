@@ -1,5 +1,5 @@
 /**
- * TODO: comment
+ * Module definition file.
  */
 
 var angular = require('angular');
@@ -13,11 +13,10 @@ var app = angular.module('customerApp', [
   'ui.bootstrap'
 ]);
 
-
 require('./filters');
 require('./services');
 require('./controllers');
-//
+
 app.config(function($routeProvider) {
   $routeProvider
     .when('/', {
