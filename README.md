@@ -20,4 +20,5 @@ in a node_modules directory.
 ### 4. Start up the Express server
 
 Type "npm start" in the terminal from the root directory of the project,
-fire up a browser, and go to "localhost:(your port number)".
+fire up a browser, and go to "localhost:(your port number)". (Your port number
+will be displayed in the terminal.)
