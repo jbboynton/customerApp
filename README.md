@@ -3,12 +3,6 @@
 A single-page application built with AngularJS that allows a user to perform
 CRUD operations on a list of customers.
 
-## Goals for version 3
-
-1.  Integrate automatic building and testing with Grunt
-2.  Execute unit and endpoint tests
-3.  Design the app around the lessons learned from versions 1 and 2
-
 ## How to quickly get this app running
 
 ### 1. Install Node.js
@@ -21,11 +15,9 @@ Download Node at <https://nodejs.org> and install on your machine.
 
 Open a terminal and browse to the root directory of the project.  Type
 "npm install" and hit enter.  This should install all essential dependencies
-locally to your node_modules directory.  If you want to also install the
-devDependencies, run "npm run installCLItools" to install the command line
-tools.
+in a node_modules directory.
 
 ### 4. Start up the Express server
 
-Just type "npm start" in the terminal from the root directory of the project,
-fire up a browser, and go to "localhost:3000".
+Type "npm start" in the terminal from the root directory of the project,
+fire up a browser, and go to "localhost:(your port number)".
