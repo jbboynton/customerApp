@@ -14,8 +14,8 @@ Download Node at <https://nodejs.org> and install on your machine.
 ### 3. Install dependencies
 
 Open a terminal and browse to the root directory of the project.  Type
-"npm install" and hit enter.  This should install all essential dependencies
-in a node_modules directory.
+"npm install" and hit enter.  This should install all dependencies in a
+node_modules directory.
 
 ### 4. Start up the Express server
 
